@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,10 +6,16 @@
     <title>Students</title>
 </head>
 <body>
-    <form method = "post" enctype="multipart/form-data">
+    <form method = "post" enctype="multipart/form-data" actioin={% url 'take' %}>
         {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Upload</button>
+        <p> Please put in your ID.
+            If this is your first time choose a random ID between 1-10000
+            ID</p>
+        <input  type="number" id="fname" name="id">
+        
+        <input  type="text" id="name" name="name">
+        <button type="submit" >Submit</button>
+        
     </form>
 </body>
 </html>
