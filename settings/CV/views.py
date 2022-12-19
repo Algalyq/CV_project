@@ -181,7 +181,7 @@ def Recog(request):
         label = 0
         userId = 0
         faces = faceClassifier.detectMultiScale(grey, scaleFactor=1.1, minNeighbors=4)
-
+        name = ''
         for x, y, w, h in faces:
             faceRegion = grey[y:y + h, x:x + w]
             faceRegion = cv.resize(faceRegion, (220, 220))
@@ -189,14 +189,16 @@ def Recog(request):
             label, trust = lbph.predict(faceRegion)
             trust = 100 - int(trust)
             #
-               # name = id_names[id_names['id'] == label]['name'].item()
-            if trust > 50:
-                userId = label
+            names = id_names[id_names['id'] == label]['name'].item()
+            name = names
+            if trust > 55:
+                userId = label #"Detected"
                 cv.rectangle(img, (x, y), (x + w, y + h), (0, 255,0), 2)
-                cv.putText(img, "Detected", (x, y + h + 30), cv.FONT_HERSHEY_COMPLEX, 1, (0, 255,0))
+                cv.putText(img, str(trust) , (x, y + h + 30), cv.FONT_HERSHEY_COMPLEX, 1, (0, 255,0))
             else:
+                #"Unknown",
                 cv.rectangle(img, (x, y), (x + w, y + h), (0, 0,255), 2)
-                cv.putText(img, "Unknown", (x, y + h + 30), cv.FONT_HERSHEY_COMPLEX, 1, (0, 255,0))
+                cv.putText(img, str(trust),  (x, y + h + 30), cv.FONT_HERSHEY_COMPLEX, 1, (0, 255,0))
         cv.imshow("Face",img)
         if(cv.waitKey(1) == ord('q')):
             break
@@ -204,7 +206,7 @@ def Recog(request):
             cv.waitKey(1000)
             camera.release()
             cv.destroyAllWindows()
-            return redirect('tema')
+            return redirect('tema',name)
 
     camera.release()
     cv.destroyAllWindows()
@@ -213,8 +215,8 @@ def Recog(request):
        
 
 
-def tema(request):
-    return render(request,'CV/tema.html')
+def tema(request,data):
+    return render(request,'CV/index.html',{'name':data})
 
 
  

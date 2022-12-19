@@ -36,10 +36,11 @@
 		</div>
 		<div class="collapse navbar-collapse">
 			<ul class="nav navbar-nav navbar-right">
-				<li><a href="#home" class="smoothScroll">HOME</a></li>
-				<li><a href="#service" class="smoothScroll">SERVICE</a></li>
-				<li><a href="#about" class="smoothScroll">ABOUT</a></li>
-				<li><a href="#contact" class="smoothScroll">CONTACT</a></li>
+				<li><a href="/" class="smoothScroll">HOME</a></li>
+				{% if name %}
+				
+				<li><a href="#contact" class="smoothScroll">{{name}}</a></li>
+				{%endif%}
 			</ul>
 		</div>
 	</div>
@@ -96,18 +97,26 @@
 	</div>
 </div>
 
-<!-- about section -->
-<div id="about">
-	<div class="container">
-		<div class="row">
-			<div class="col-md-12 col-sm-12">
-				<h2>Let's recognize with face</h2>
-			</div>
-			<div class="col-md-6 col-sm-6">
-				<a href="{% url 'take' %}"><button>Crate Dataset</button></a>
 
-			</div>
+<!-- about section -->
+<div id="abouts" style="padding-top: 60px; padding-bottom: 80px;">
+	<div class="container" >
+		<div class="row" style="width:1000px; position:relative; left:380px;">
+			<div class="col-md-7" >
+				<h3 class="" style="position:relative; left:100px;">Face Recognition</h3>
+				<div class="col-md-4">
+				  <a href="/recog"><img src="{% static 'CV/images/webcam.png' %}"  style="width:140px; height:140px;"  class="img-responsive" /></a>
+				  <h4  >Detect By Webcam</h4>
+				</div>
+				
+				<div class="col-md-4">
+				  <button type="button" style="background:transparent;border:none" data-toggle="modal" data-target="#myModal">
+					<a href='/take'><img src="{% static 'CV/images/add.png' %}" style="width:128px; height:128px;" class="img-responsive" /></a>
+				  </button>
+				  <h4>Create Dataset</h4>
+				</div>
 		</div>
+	</div>
 	</div>
 </div>
 
@@ -127,7 +136,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12 col-sm-12">
-				<h2>People behind the firm</h2>
+				<h2>Our Team</h2>
 			</div>
 			<div class="col-md-3 col-sm-6">  
 				<img src="{% static 'CV/images/fati.jpg' %}" class="img-responsive" alt="team img">
@@ -182,40 +191,7 @@
 
 
 
-<!-- contact section -->
-<div id="contact">
-	<div class="container">
-		<div class="row">
-			<div class="col-md-12 col-sm-12">
-				<h2>Keep in touch</h2>
-			</div>
-			<form action="#" method="post" role="form">
-				<div class="col-md-1 col-sm-1"></div>
-				<div class="col-md-10 col-sm-10">
-					<div class="col-md-6 col-sm-6">
-						<input name="name" type="text" class="form-control" id="name" placeholder="Name">
-				  	</div>
-					<div class="col-md-6 col-sm-6">
-						<input name="email" type="email" class="form-control" id="email" placeholder="Email">
-				  	</div>
-                    <div class="col-md-12 col-sm-12">
-						<input name="subject" type="text" class="form-control" id="subject" placeholder="Subject">
-	    	  	  	</div>
-					<div class="col-md-12 col-sm-12">
-						<textarea name="message" rows="5" class="form-control" id="message" placeholder="Message"></textarea>
-					</div>
-					<div class="col-md-8 col-sm-8">
-						<p>                                                               </p>
-					</div>
-					<div class="col-md-4 col-sm-4">
-						<input name="submit" type="submit" class="form-control" id="submit" value="SEND MESSAGE">
-					</div>
-				</div>
-				<div class="col-md-1 col-sm-1"></div>
-			</form>
-		</div>
-	</div>
-</div>
+
 
 
 

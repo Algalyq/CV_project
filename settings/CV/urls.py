@@ -6,5 +6,5 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('take/', views.takeImg, name='take'),
     path('recog/', views.Recog, name='recog'),
-    path('tema/', views.tema, name='tema'),
+    path('tema/<str:data>', views.tema, name='tema'),
 ]

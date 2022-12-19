@@ -179,6 +179,13 @@ img:hover {
 #about {
   padding-top: 60px;
   padding-bottom: 80px;
+
+}
+
+#abouts{
+  
+  padding-top: 60px;
+  padding-bottom: 80px;
 }
 #about h2 {
   border-right: 2px solid #f2af00;
@@ -189,10 +196,7 @@ img:hover {
   text-align: center;
   padding-bottom: 60px;
 }
-#about img {
-  border: 1px solid #666;
-  padding: 10px;
-}
+
 #about h4 {
   padding-bottom: 10px;
 }
