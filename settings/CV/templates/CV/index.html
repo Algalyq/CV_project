@@ -61,30 +61,33 @@
 </div>
 
 <!-- service section -->
+
 <div id="service">
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12 col-sm-12">
-				<h2>Our Workflow</h2>
+				<h2>Our Work</h2>
 			</div>
 			<div class="col-md-4 col-sm-4">
-				<i class="fa fa-cubes"></i>
-				<h3>Research</h3>
-				<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet. Dolore magna aliquam erat volutpat.</p>
+				<img src="{% static 'CV/images/ids.jpg' %}" style="position:relative; left:80px; width:160px; height:150px; border-radius: 25% 10%;"/>
+				<h3>Take Images</h3>
+				<p>First of we need to take image of ID cards. Our code will activate camera capture and it will be detect face. That take image we should press S keyboard</p>
 			</div>
 			<div class="col-md-4 col-sm-4">
-				<i class="fa fa-cogs"></i>
-				<h3>Design</h3>
-				<p>This website template is brought to you by Tooplate. You can modify and use it for any website. You can change icons by looking at <a rel="nofollow" href="http://fortawesome.github.io/Font-Awesome/examples/" target="_parent">examples</a>.</p>
+				<img src="{% static 'CV/images/takimg.png' %}" style="position:relative; left:80px; width:160px; height:150px; border-radius: 90px;"/>
+			
+				<h3>After take Image</h3>
+				<p>After take all images we run function which train our module.To finish taking a picture of the ID card, we must press Q keyboard</p>
 			</div>
 			<div class="col-md-4 col-sm-4">
-				<i class="fa fa-group"></i>
+				<img src="{% static 'CV/images/1.png' %}" style="position:relative; left:80px; width:160px; height:150px; border-radius: 90px;"/>
 				<h3>Computer Vision Algorithm</h3>
-				<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet. Dolore magna aliquam erat volutpat.</p>
+				<p>We use python libary openCV, numpy, pandas and such as frameworks Django. </p>
 			</div>
 		</div>
 	</div>
 </div>
+
 
 <!-- divider section -->
 <div class="container">
@@ -105,7 +108,7 @@
 			<div class="col-md-7" >
 				<h3 class="" style="position:relative; left:100px;">Face Recognition</h3>
 				<div class="col-md-4">
-				  <a href="/recog"><img src="{% static 'CV/images/webcam.png' %}"  style="width:140px; height:140px;"  class="img-responsive" /></a>
+				  <a href="/recognition"><img src="{% static 'CV/images/webcam.png' %}"  style="width:140px; height:140px;"  class="img-responsive" /></a>
 				  <h4  >Detect By Webcam</h4>
 				</div>
 				

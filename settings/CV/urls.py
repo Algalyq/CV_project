@@ -5,6 +5,6 @@ from . import views
 urlpatterns = [
     path('', views.index, name='index'),
     path('take/', views.takeImg, name='take'),
-    path('recog/', views.Recog, name='recog'),
-    path('tema/<str:data>', views.tema, name='tema'),
+    path('recognition/', views.recognition, name='recog'),
+    path('profile/<str:data>', views.profile, name='profile'),
 ]

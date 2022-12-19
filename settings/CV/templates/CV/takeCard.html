@@ -60,11 +60,29 @@
 	</div>
 </div>
 
-<!-- service section -->
+
 <div id="service">
 	<div class="container">
 		<div class="row">
-			<p>First step: We should take image of ID card</p>
+			<div class="col-md-12 col-sm-12">
+				<h2>Our Work</h2>
+			</div>
+			<div class="col-md-4 col-sm-4">
+				<img src="{% static 'CV/images/ids.jpg' %}" style="position:relative; left:80px; width:160px; height:150px; border-radius: 25% 10%;"/>
+				<h3>Take Images</h3>
+				<p>First of we need to take image of ID cards. Our code will activate camera capture and it will be detect face. That take image we should press S keyboard</p>
+			</div>
+			<div class="col-md-4 col-sm-4">
+				<img src="{% static 'CV/images/takimg.png' %}" style="position:relative; left:80px; width:160px; height:150px; border-radius: 90px;"/>
+			
+				<h3>After take Image</h3>
+				<p>After take all images we run function which train our module.To finish taking a picture of the ID card, we must press Q keyboard</p>
+			</div>
+			<div class="col-md-4 col-sm-4">
+				<img src="{% static 'CV/images/1.png' %}" style="position:relative; left:80px; width:160px; height:150px; border-radius: 90px;"/>
+				<h3>Computer Vision Algorithm</h3>
+				<p>We use python libary openCV, numpy, pandas and such as frameworks Django. </p>
+			</div>
 		</div>
 	</div>
 </div>
