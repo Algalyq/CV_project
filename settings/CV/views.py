@@ -7,7 +7,7 @@ from .utils import *
 from .Backend import *
 
 def index(request):
-    return render(request, 'CV/takeCard.html')
+    return render(request, 'CV/index.html')
 
 def takeImg(request):
     if request.method == "POST":
@@ -178,7 +178,8 @@ def Recog(request):
     while cv.waitKey(1) & 0xFF != ord('q'):
         _, img = camera.read()
         grey = cv.cvtColor(img, cv.COLOR_BGR2GRAY)
-
+        label = 0
+        userId = 0
         faces = faceClassifier.detectMultiScale(grey, scaleFactor=1.1, minNeighbors=4)
 
         for x, y, w, h in faces:
@@ -186,20 +187,30 @@ def Recog(request):
             faceRegion = cv.resize(faceRegion, (220, 220))
 
             label, trust = lbph.predict(faceRegion)
-            try:
-                if trust > 50:
-                    
-                    name = id_names[id_names['id'] == label]['name'].item()
-                    cv.rectangle(img, (x, y), (x + w, y + h), (0, 255,0), 2)
-                    cv.putText(img, name, (x, y + h + 30), cv.FONT_HERSHEY_COMPLEX, 1, (0, 255,0))
-            except:
-                pass
-
-        cv.imshow('Recognize', img)
+            trust = 100 - int(trust)
+            #
+               # name = id_names[id_names['id'] == label]['name'].item()
+            if trust > 50:
+                userId = label
+                cv.rectangle(img, (x, y), (x + w, y + h), (0, 255,0), 2)
+                cv.putText(img, "Detected", (x, y + h + 30), cv.FONT_HERSHEY_COMPLEX, 1, (0, 255,0))
+            else:
+                cv.rectangle(img, (x, y), (x + w, y + h), (0, 0,255), 2)
+                cv.putText(img, "Unknown", (x, y + h + 30), cv.FONT_HERSHEY_COMPLEX, 1, (0, 255,0))
+        cv.imshow("Face",img)
+        if(cv.waitKey(1) == ord('q')):
+            break
+        elif(userId != 0):
+            cv.waitKey(1000)
+            camera.release()
+            cv.destroyAllWindows()
+            return redirect('tema')
 
     camera.release()
     cv.destroyAllWindows()
-    return redirect('index')
+    return redirect('/')        
+
+       
 
 
 def tema(request):
